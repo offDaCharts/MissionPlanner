@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Amazon.S3;
-using Amazon.S3.Transfer;
+//using Amazon.S3;
+//using Amazon.S3.Transfer;
 using System.Net;
 using System.IO;
 
@@ -13,14 +13,14 @@ namespace ArdupilotMega.Utilities
     public class S3Uploader
     {
         private string bucketName;
-        private Amazon.S3.Transfer.TransferUtility transferUtility;
+        //private Amazon.S3.Transfer.TransferUtility transferUtility;
 
         public int Progress;
 
         public S3Uploader(string bucketName)
         {
             this.bucketName = bucketName;
-            this.transferUtility = new Amazon.S3.Transfer.TransferUtility("AKIAIALOFNWOTXDMVF3Q", "d0mcWo3UkDD95rE9KyFxowbmPnr9t1Y4RbmHvwGA");
+            //this.transferUtility = new Amazon.S3.Transfer.TransferUtility("AKIAIALOFNWOTXDMVF3Q", "d0mcWo3UkDD95rE9KyFxowbmPnr9t1Y4RbmHvwGA");
         }
 
         public void UploadTlog(string source)
@@ -56,7 +56,7 @@ namespace ArdupilotMega.Utilities
             }
             catch (ArgumentException ex) { System.Windows.Forms.CustomMessageBox.Show("Error bad argument\n\n " + ex.ToString()); return; }
             catch (WebException ex) { System.Windows.Forms.CustomMessageBox.Show("Error communicating with server\n\n" + ex.ToString()); return; }
-            catch (AmazonS3Exception ex) { System.Windows.Forms.CustomMessageBox.Show("Error accessing amazon\n\n" + ex.ToString()); return; }
+            //catch (AmazonS3Exception ex) { System.Windows.Forms.CustomMessageBox.Show("Error accessing amazon\n\n" + ex.ToString()); return; }
 
             Progress = 100;
             var x = result;

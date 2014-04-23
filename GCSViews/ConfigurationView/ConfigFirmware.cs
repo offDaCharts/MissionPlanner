@@ -12,7 +12,7 @@ using ArdupilotMega.Utilities;
 using System.Text.RegularExpressions;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using px4uploader;
+//using px4uploader;
 using ArdupilotMega.Controls;
 using System.Collections;
 
@@ -694,7 +694,7 @@ namespace ArdupilotMega.GCSViews
             DateTime DEADLINE = DateTime.Now.AddSeconds(30);
 
             Uploader up;
-            px4uploader.Firmware fw = px4uploader.Firmware.ProcessFirmware(filename);
+            //px4uploader.Firmware fw = px4uploader.Firmware.ProcessFirmware(filename);
 
             CustomMessageBox.Show("Press reset the board, and then press OK within 5 seconds.\nMission Planner will look for 30 seconds to find the board");
 
