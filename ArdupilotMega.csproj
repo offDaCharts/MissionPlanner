@@ -489,39 +489,27 @@
     <Compile Include="Plugin\IPlugin.cs" />
     <Compile Include="Plugin\PluginLoader.cs" />
     <Compile Include="Utilities\Firmware.cs" />
-    <Compile Include="Wizard\1Intro.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Wizard\1Intro.cs" />
     <Compile Include="Wizard\1Intro.Designer.cs">
       <DependentUpon>1Intro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\2FrameFW.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Wizard\2FrameFW.cs" />
     <Compile Include="Wizard\2FrameFW.Designer.cs">
       <DependentUpon>2FrameFW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\3ConnectAP.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Wizard\3ConnectAP.cs" />
     <Compile Include="Wizard\3ConnectAP.Designer.cs">
       <DependentUpon>3ConnectAP.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\4FrameType.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Wizard\4FrameType.cs" />
     <Compile Include="Wizard\4FrameType.Designer.cs">
       <DependentUpon>4FrameType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\5AccelCalib.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Wizard\5AccelCalib.cs" />
     <Compile Include="Wizard\5AccelCalib.Designer.cs">
       <DependentUpon>5AccelCalib.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\6CompassCalib.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Wizard\6CompassCalib.cs" />
     <Compile Include="Wizard\6CompassCalib.Designer.cs">
       <DependentUpon>6CompassCalib.cs</DependentUpon>
     </Compile>
@@ -2242,7 +2230,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"$(TargetDir)version.exe" "$(TargetPath)" &gt; "$(TargetDir)version.txt"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
