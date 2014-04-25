@@ -10,7 +10,7 @@ using System.Xml;
 using ArdupilotMega.Arduino;
 using ArdupilotMega.Comms;
 using log4net;
-using px4uploader;
+//using px4uploader;
 
 namespace ArdupilotMega.Utilities
 {
@@ -438,8 +438,8 @@ namespace ArdupilotMega.Utilities
         {
             DateTime DEADLINE = DateTime.Now.AddSeconds(30);
 
-            Uploader up;
-            px4uploader.Firmware fw = px4uploader.Firmware.ProcessFirmware(filename);
+            //Uploader up;
+            //px4uploader.Firmware fw = px4uploader.Firmware.ProcessFirmware(filename);
 
             CustomMessageBox.Show("Press reset the board, and then press OK within 5 seconds.\nMission Planner will look for 30 seconds to find the board");
 
@@ -452,7 +452,7 @@ namespace ArdupilotMega.Utilities
 
                 try
                 {
-                    up = new Uploader(port, 115200);
+                    //up = new Uploader(port, 115200);
                 }
                 catch (Exception ex)
                 {
@@ -463,28 +463,28 @@ namespace ArdupilotMega.Utilities
 
                 try
                 {
-                    up.identify();
+                    //up.identify();
                     updateProgress(-1, "Identify");
-                    Console.WriteLine("Found board type {0} boardrev {1} bl rev {2} fwmax {3} on {4}", up.board_type, up.board_rev, up.bl_rev, up.fw_maxsize, port);
+                    //Console.WriteLine("Found board type {0} boardrev {1} bl rev {2} fwmax {3} on {4}", up.board_type, up.board_rev, up.bl_rev, up.fw_maxsize, port);
 
-                    up.currentChecksum(fw);
+                    //up.currentChecksum(fw);
                 }
                 catch (Exception)
                 {
                     Console.WriteLine("Not There..");
                     //Console.WriteLine(ex.Message);
-                    up.close();
+                    //up.close();
                     continue;
                 }
 
                 try
                 {
-                    up.ProgressEvent += new Uploader.ProgressEventHandler(up_ProgressEvent);
-                    up.LogEvent += new Uploader.LogEventHandler(up_LogEvent);
+                    //up.ProgressEvent += new Uploader.ProgressEventHandler(up_ProgressEvent);
+                    //up.LogEvent += new Uploader.LogEventHandler(up_LogEvent);
 
                     updateProgress(0, "Upload");
-                    up.upload(fw);
-                    updateProgress(100, "Upload Done");
+                    //up.upload(fw);
+                    //updateProgress(100, "Upload Done");
                 }
                 catch (Exception ex)
                 {
@@ -492,7 +492,7 @@ namespace ArdupilotMega.Utilities
                     Console.WriteLine(ex.ToString());
 
                 }
-                up.close();
+                //up.close();
                 CustomMessageBox.Show("Please unplug, and plug back in your px4, before you try connecting");
 
                 return true;

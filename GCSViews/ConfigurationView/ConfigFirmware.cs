@@ -12,7 +12,7 @@ using ArdupilotMega.Utilities;
 using System.Text.RegularExpressions;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using px4uploader;
+//using px4uploader;
 using ArdupilotMega.Controls;
 using System.Collections;
 
@@ -693,8 +693,8 @@ namespace ArdupilotMega.GCSViews
 
             DateTime DEADLINE = DateTime.Now.AddSeconds(30);
 
-            Uploader up;
-            px4uploader.Firmware fw = px4uploader.Firmware.ProcessFirmware(filename);
+            //Uploader up;
+            //px4uploader.Firmware fw = px4uploader.Firmware.ProcessFirmware(filename);
 
             CustomMessageBox.Show("Press reset the board, and then press OK within 5 seconds.\nMission Planner will look for 30 seconds to find the board");
 
@@ -710,7 +710,7 @@ namespace ArdupilotMega.GCSViews
 
                 try
                 {
-                    up = new Uploader(port, 115200);
+                    //up = new Uploader(port, 115200);
                 }
                 catch (Exception ex)
                 {
@@ -721,29 +721,29 @@ namespace ArdupilotMega.GCSViews
 
                 try
                 {
-                    up.identify();
+                    //up.identify();
                     lbl_status.Text = "Identify";
                     Application.DoEvents();
-                    Console.WriteLine("Found board type {0} boardrev {1} bl rev {2} fwmax {3} on {4}", up.board_type, up.board_rev, up.bl_rev, up.fw_maxsize, port);
+                    //Console.WriteLine("Found board type {0} boardrev {1} bl rev {2} fwmax {3} on {4}", up.board_type, up.board_rev, up.bl_rev, up.fw_maxsize, port);
 
-                    up.currentChecksum(fw);
+                    //up.currentChecksum(fw);
                 }
                 catch (Exception)
                 {
                     Console.WriteLine("Not There..");
                     //Console.WriteLine(ex.Message);
-                    up.close();
+                    //up.close();
                     continue;
                 }
 
                 try
                 {
-                    up.ProgressEvent += new Uploader.ProgressEventHandler(up_ProgressEvent);
-                    up.LogEvent += new Uploader.LogEventHandler(up_LogEvent);
+                    //up.ProgressEvent += new Uploader.ProgressEventHandler(up_ProgressEvent);
+                    //up.LogEvent += new Uploader.LogEventHandler(up_LogEvent);
 
                     progress.Value = 0;
                     Application.DoEvents();
-                    up.upload(fw);
+                    //up.upload(fw);
                     lbl_status.Text = "Done";
                     Application.DoEvents();
                 }
@@ -754,7 +754,7 @@ namespace ArdupilotMega.GCSViews
                     Console.WriteLine(ex.ToString());
 
                 }
-                up.close();
+                //up.close();
 
                 break;
             }
